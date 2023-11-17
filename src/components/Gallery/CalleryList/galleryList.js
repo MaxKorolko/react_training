@@ -11,7 +11,7 @@ import Fancybox from '../FancyBox/fancyBox'
 
 export default function ImageGallery({ request, page, loadMore }) {
   const [hits, setHits] = useState([]);
-  const [totalPage, setTotalPage] = useState(null);
+  // const [totalPage, setTotalPage] = useState(null);
   // const [loader, setLoader] = useState(false);
 
   const API_KEY = '28033365-ba4821d388ed22fecf976971a';
@@ -26,7 +26,7 @@ export default function ImageGallery({ request, page, loadMore }) {
     )
       .then(res => res.json())
       .then(data => {
-        const { hits, totalHits, total } = data;
+        const { hits, totalHits } = data;
 
         // if (total === 0) {
         //   toast.error('The search has not given any results');
@@ -55,7 +55,7 @@ export default function ImageGallery({ request, page, loadMore }) {
           return (
             <li key={uniqid()} className={s.item}>
               <a data-fancybox="gallery" href={largeImageURL}>
-                <img className={s.img} src={webformatURL} />
+                <img className={s.img} src={webformatURL} alt="name" />
               </a>
             </li>
           )
