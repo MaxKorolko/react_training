@@ -26,7 +26,7 @@ export default function ImageGallery({ request, page, loadMore }) {
     )
       .then(res => res.json())
       .then(data => {
-        const { hits, totalHits } = data;
+        const { hits } = data;
 
         // if (total === 0) {
         //   toast.error('The search has not given any results');
@@ -34,7 +34,7 @@ export default function ImageGallery({ request, page, loadMore }) {
         // }
         if (page === 1) {
           setHits(hits);
-          setTotalPage(Math.ceil(totalHits / 12));
+          // setTotalPage(Math.ceil(totalHits / 12));
         } else {
           setHits(prev => [...prev, ...hits]);
         }
