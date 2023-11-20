@@ -1,10 +1,15 @@
-import ImageGallery from './Gallery/CalleryList/galleryList'
-import Container from './Container/container'
 import React from 'react';
+
+import Gallery from './Gallery/Gallery'
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export const App = () => {
   return (
-    <Container>
-      <ImageGallery page={1} request={'cat'}/>
-    </Container>
+    <>
+      <Gallery/>
+      <ToastContainer />
+    </>
   );
 };
