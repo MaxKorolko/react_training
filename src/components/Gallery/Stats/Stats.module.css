@@ -1,0 +1,16 @@
+.wrap {
+  width: calc(100% - 20px);
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #35dffb;
+  opacity: 0.8;
+  color: #014e63;
+}
+
+.stat svg {
+  margin-right: 5px;
+}

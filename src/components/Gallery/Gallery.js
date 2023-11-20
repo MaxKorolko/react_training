@@ -6,7 +6,8 @@ import FilterBar from './Filter/GalleryFilter'
 import uniqid from 'uniqid'
 import FancyBox from './FancyBox/FancyBox'
 // import Loader from '../Loader/Loader';
-import Container from '../Container/Container';
+import Container from '../Container/Container'
+import Stats from './Stats/Stats';
 
 
 export default function Gallery() {
@@ -85,12 +86,13 @@ export default function Gallery() {
           }}
         >
           <ul className={s.gallery}>
-            {hits.map(({ webformatURL, largeImageURL }) => {
+            {hits.map(({ webformatURL, largeImageURL, views, likes, downloads }) => {
               return (
                 <li key={uniqid()} className={s.item}>
                   <a data-fancybox="gallery" href={largeImageURL}>
                     <img className={s.img} src={webformatURL} alt="name" />
                   </a>
+                  <Stats views={views} likes={likes} downloads={downloads} />
                 </li>
               )
             })}
