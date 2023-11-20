@@ -13,6 +13,7 @@ import Stats from './Stats/Stats';
 export default function Gallery() {
   const [hits, setHits] = useState([]);
   const [page, setPage] = useState(1);
+  const [totalPage, setTotalPage] = useState();
   const [request, setRequest] = useState({
     imageName: '',
     imageType: '',
@@ -20,29 +21,28 @@ export default function Gallery() {
     imageColors: '',
     imageOrientation: 'horizontal'
   });
-  // const [totalPage, setTotalPage] = useState(null);
   // const [loader, setLoader] = useState(false);
 
-  const searchParams = new URLSearchParams({
-    key: '28033365-ba4821d388ed22fecf976971a',
-    q: request.imageName,
-    category: request.imageCategory,
-    image_type: request.imageType,
-    colors: request.imageColors,
-    orientation: request.imageOrientation,
-    page: page,
-    per_page: 20
-  }).toString();
-
-  const searchUrl = `https://pixabay.com/api/?${searchParams}`;
-
   useEffect(() => {
+    const searchParams = new URLSearchParams({
+      key: '28033365-ba4821d388ed22fecf976971a',
+      q: request.imageName,
+      category: request.imageCategory,
+      image_type: request.imageType,
+      colors: request.imageColors,
+      orientation: request.imageOrientation,
+      page: page,
+      per_page: 20
+    }).toString();
+
+    const searchUrl = `https://pixabay.com/api/?${searchParams}`;
+
     const fetchImages = async () => {
       try {
         const response = await fetch(searchUrl);
         const data = await response.json();
         console.log(data);
-        const { hits, total } = data;
+        const { hits, total, totalHits } = data;
 
         if (total === 0) {
           toast.error('The search has not given any results');
@@ -50,7 +50,8 @@ export default function Gallery() {
         }
         if (page === 1) {
           setHits(hits);
-          // setTotalPage(Math.ceil(totalHits / 12));
+          const maxPage = Math.ceil(totalHits / 20);
+          setTotalPage(maxPage);
         } else {
           setHits(prev => [...prev, ...hits]);
         }
@@ -61,18 +62,20 @@ export default function Gallery() {
 
     fetchImages();
 
-  }, [page, request, searchUrl]);
+  }, [page, request ]);
 
   const getRequest = newRequest => {
     const isEqual = JSON.stringify(request) === JSON.stringify(newRequest);
-    console.log(isEqual); // true
     if (isEqual) {
-      return console.log('hahahaha');
+      return toast.success('Filter applied');
     } else {
       setRequest(newRequest);
       setPage(1);
     }
   };
+  console.log(totalPage);
+  const moreResults = () => setPage(page + 1);
+
 
   return (
     <>
@@ -91,13 +94,14 @@ export default function Gallery() {
                 <li key={uniqid()} className={s.item}>
                   <a data-fancybox="gallery" href={largeImageURL}>
                     <img className={s.img} src={webformatURL} alt="name" />
+                    <Stats views={views} likes={likes} downloads={downloads} />
                   </a>
-                  <Stats views={views} likes={likes} downloads={downloads} />
                 </li>
               )
             })}
           </ul>
         </FancyBox>
+        <button className={s.moreBtn} type="button" onClick={moreResults}>More</button>
       </Container>
     </>
   );
