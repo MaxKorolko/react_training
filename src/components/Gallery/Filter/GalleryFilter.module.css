@@ -32,10 +32,15 @@
   align-items: center;
   justify-content: center;
   color: #014e63;
+  transition: background-color 250ms linear;
 }
 
 .btn svg {
   margin-left: 8px;
+}
+
+.btn:hover {
+  background-color: #ffccbb;
 }
 
 .input,

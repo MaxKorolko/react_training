@@ -1,17 +1,20 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 // import PropTypes from 'prop-types'
 import { toast } from 'react-toastify'
 import s from './GalleryList.module.css'
 import FilterBar from './Filter/GalleryFilter'
 import uniqid from 'uniqid'
 import FancyBox from './FancyBox/FancyBox'
-// import Loader from '../Loader/Loader';
+import Loader from '../Loader/Loader';
 import Container from '../Container/Container'
 import Stats from './Stats/Stats';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faInfinity } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function Gallery() {
   const [hits, setHits] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState();
   const [request, setRequest] = useState({
@@ -39,6 +42,7 @@ export default function Gallery() {
 
     const fetchImages = async () => {
       try {
+        setLoading(true);
         const response = await fetch(searchUrl);
         const data = await response.json();
         console.log(data);
@@ -57,6 +61,8 @@ export default function Gallery() {
         }
       } catch (error) {
         console.log(error.message);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -74,8 +80,6 @@ export default function Gallery() {
     }
   };
   console.log(totalPage);
-  const moreResults = () => setPage(page + 1);
-
 
   return (
     <>
@@ -101,8 +105,14 @@ export default function Gallery() {
             })}
           </ul>
         </FancyBox>
-        <button className={s.moreBtn} type="button" onClick={moreResults}>More</button>
+        {totalPage > page &&
+          <button className={s.moreBtn} type="button" onClick={() => setPage(page + 1)}>
+            Load More
+            <FontAwesomeIcon icon={faInfinity} />
+          </button>
+        }
       </Container>
+      <Loader loading={loading}/>
     </>
   );
 }

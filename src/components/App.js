@@ -9,7 +9,10 @@ export const App = () => {
   return (
     <>
       <Gallery/>
-      <ToastContainer />
+      <ToastContainer
+        position="bottom-left"
+        autoClose={3000}
+      />
     </>
   );
 };
