@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 import s from './GalleryList.module.css'
 import FilterBar from './Filter/GalleryFilter'
 import uniqid from 'uniqid'
-import FancyBox from './FancyBox/FancyBox'
+import FancyBox from '../FancyBox/FancyBox'
 import Loader from '../Loader/Loader';
 import Container from '../Container/Container'
 import Stats from './Stats/Stats';
