@@ -1,9 +1,8 @@
 .header {
-  background-color: bisque;
+  background-color: #000;
   min-height: 80px;
   display: flex;
   align-items: center;
-  margin-bottom: 30px;
 }
 
 .link {
@@ -12,6 +11,7 @@
   padding: 10px;
   font-weight: 500;
   font-size: 22px;
+  color: #fff;
 }
 
 .list {

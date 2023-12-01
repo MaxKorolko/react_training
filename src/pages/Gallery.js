@@ -1,6 +1,6 @@
 import Gallery from '../components/Gallery/Gallery';
 
-export default function HomePage() {
+export default function GalleryPage() {
 
   return (
     <main>

@@ -24,7 +24,6 @@ export default function Gallery() {
     imageColors: '',
     imageOrientation: 'horizontal'
   });
-  // const [loader, setLoader] = useState(false);
 
   useEffect(() => {
     const searchParams = new URLSearchParams({
@@ -45,7 +44,6 @@ export default function Gallery() {
         setLoading(true);
         const response = await fetch(searchUrl);
         const data = await response.json();
-        console.log(data);
         const { hits, total, totalHits } = data;
 
         if (total === 0) {
@@ -79,7 +77,6 @@ export default function Gallery() {
       setPage(1);
     }
   };
-  console.log(totalPage);
 
   return (
     <>

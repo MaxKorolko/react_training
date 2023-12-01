@@ -8,10 +8,10 @@ import 'react-toastify/dist/ReactToastify.css';
 const Navigation = lazy(() =>
   import('./components/Navigation/Navigation' /* webpackChunkName: "navigation" */)
 );
-const Gallery = lazy(() =>
+const GalleryPage = lazy(() =>
   import('./pages/Gallery' /* webpackChunkName: "gallery" */)
 );
-const Movies = lazy(() =>
+const MoviesPage = lazy(() =>
   import('./pages/Movies' /* webpackChunkName: "movies" */)
 );
 
@@ -21,9 +21,9 @@ export const App = () => {
       <Suspense fallback={<Loader />}>
         <Navigation />
         <Routes>
-          <Route path="/" element={<Gallery />} />
-          <Route path="movies" element={<Movies />} />
-          <Route path="*" element={<Gallery />} />
+          <Route path="/" element={<GalleryPage />} />
+          <Route path="movies" element={<MoviesPage />} />
+          <Route path="*" element={<GalleryPage />} />
         </Routes>
       </Suspense>
       <ToastContainer position="bottom-left" autoClose={3000} />

@@ -1,5 +1,6 @@
-
-export default function HomePage() {
+import createUser from '../services/firebaseAuth';
+export default function MoviesPage() {
+  // createUser('m.v.korolko@gmail.com', 'password123');
 
   return (
     <main>
