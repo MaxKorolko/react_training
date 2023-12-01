@@ -8,8 +8,7 @@
   align-items: center;
   min-height: 64px;
   padding: 12px 24px;
-  color: #fff;
-  background-color: #fff;
+  background-color: #F5EDED;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
   0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
@@ -25,13 +24,13 @@
   border: 0;
   cursor: pointer;
   outline: none;
-  background-color: #35dffb;
+  background-color: #D72323;
   padding: 9px 11px;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #014e63;
+  color: #F5EDED;
   transition: background-color 250ms linear;
 }
 
@@ -40,7 +39,7 @@
 }
 
 .btn:hover {
-  background-color: #ffccbb;
+  background-color: #000;
 }
 
 .input,
@@ -56,8 +55,19 @@
   outline: none;
   border: 1px solid #35dffb;
   border-radius: 8px;
-  color: #014e63;
+  color: #F5EDED;
+  background-color: #3E3636;
 }
+
+::placeholder {
+  color: #F5EDED;
+  opacity: 1;
+}
+
+::-ms-input-placeholder {
+  color: #F5EDED;
+}
+
 .selectBox {
   position: relative;
 }

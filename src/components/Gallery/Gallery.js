@@ -21,7 +21,7 @@ export default function Gallery() {
     imageName: '',
     imageType: '',
     imageCategory: '',
-    imageColors: '',
+    imageColors: 'black',
     imageOrientation: 'horizontal'
   });
 

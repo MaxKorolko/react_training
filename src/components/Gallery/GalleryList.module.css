@@ -32,8 +32,8 @@
 }
 
 .moreBtn {
-  background-color: #35dffb;
-  color: #014e63;
+  background-color: #D72323;
+  color: #F5EDED;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,6 +50,6 @@
 }
 
 .moreBtn:hover {
-  background-color: #ffccbb;
+  background-color: #000;
   cursor: pointer;
 }

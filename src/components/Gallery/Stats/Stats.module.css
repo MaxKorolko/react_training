@@ -6,9 +6,9 @@
   align-items: center;
   justify-content: space-around;
   padding: 10px;
-  background-color: #35dffb;
+  background-color: #F5EDED;
   opacity: 0.8;
-  color: #014e63;
+  color: #000;
 }
 
 .stat svg {
