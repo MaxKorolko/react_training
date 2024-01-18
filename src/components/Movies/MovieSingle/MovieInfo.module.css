@@ -1,0 +1,28 @@
+.infoWrap {
+  display: flex;
+  gap: 40px;
+}
+
+.infoTitle {
+  font-size: 48px;
+}
+
+.year {
+  font-size: 26px;
+  margin-left: 10px;
+  color: #D72323;
+}
+
+.itemTitle {
+  font-size: 30px;
+}
+
+.itemDesc {
+  font-size: 24px;
+  margin-left: 20px;
+  color: #D72323;
+}
+
+.overview {
+  font-size: 24px;
+}
