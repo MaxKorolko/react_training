@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import Container from '../components/Container/Container';
 import MovieInfo from '../components/Movies/MovieSingle/MovieInfo';
 import Section from '../components/Section/Section';
-import s from '../components/Movies/TrendingDay/TrendingDayItem.module.css';
+// import s from '../components/Movies/TrendingDay/TrendingDayItem.module.css';
 
 export default function MovieDetailsPage() {
   const { id } = useParams();
