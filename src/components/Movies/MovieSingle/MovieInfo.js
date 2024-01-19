@@ -1,11 +1,11 @@
 import s from './MovieInfo.module.css';
-import { Link, useLocation } from 'react-router-dom';
-import { fetchCountries } from '../../../services/fetchAPI';
-import { useState } from 'react';
+// import { Link, useLocation } from 'react-router-dom';
+// import { fetchCountries } from '../../../services/fetchAPI';
+// import { useState } from 'react';
 
 
 export default function MovieInfo({ movie }) {
-  const { pathname, search } = useLocation();
+  // const { pathname, search } = useLocation();
 
   const {
     poster_path,
@@ -33,12 +33,11 @@ export default function MovieInfo({ movie }) {
   return (
       <div className={s.infoWrap}>
         <img
-          className={s.movieImg}
           src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
           alt={`poster ${original_title}`}
         />
 
-        <div className={s.wrap}>
+        <div>
 
           <h1 className={s.infoTitle}>
             {original_title}
